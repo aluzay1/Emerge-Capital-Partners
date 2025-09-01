@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Emerge Capital Partners</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Emerge Capital Partners</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="services.html" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="services.html#investment-advisory">Investment Advisory</a></li>
+                        <li><a href="services.html#fund-management">Fund Management</a></li>
+                        <li><a href="services.html#private-equity">Private Equity</a></li>
+                        <li><a href="services.html#wealth-management">Wealth Management</a></li>
+                        <li><a href="services.html#merchant-banking">Merchant Banking</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="team.html" class="nav-link">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our team of investment experts</p>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="contact-info">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Visit Us</h3>
+                    <p>123 Financial District<br>New York, NY 10001</p>
+                    <p>United States</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>+1 (555) 123-4567</p>
+                    <p>Mon-Fri: 9:00 AM - 6:00 PM EST</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>info@emergecapital.com</p>
+                    <p>We'll respond within 24 hours</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Office Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p>Saturday: 10:00 AM - 2:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-text">
+                    <h2>Let's Start a Conversation</h2>
+                    <p>Ready to explore how Emerge Capital Partners can help you achieve your financial goals? Fill out the form below and one of our investment experts will get back to you within 24 hours.</p>
+                    <p>Whether you're looking for investment advisory services, fund management, or private equity opportunities, we're here to help you make informed decisions about your financial future.</p>
+                    <div class="contact-features">
+                        <div class="contact-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Free initial consultation</span>
+                        </div>
+                        <div class="contact-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Personalized investment strategies</span>
+                        </div>
+                        <div class="contact-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Ongoing support and guidance</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service of Interest</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="investment-advisory">Investment Advisory</option>
+                                <option value="fund-management">Fund Management</option>
+                                <option value="private-equity">Private Equity</option>
+                                <option value="wealth-management">Wealth Management</option>
+                                <option value="merchant-banking">Merchant Banking</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your investment goals and how we can help..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter" id="newsletter">
+                                <span class="checkmark"></span>
+                                Subscribe to our newsletter for market insights and updates
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Locations -->
+    <section class="office-locations">
+        <div class="container">
+            <h2 class="section-title">Our Office Locations</h2>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <div class="location-header">
+                        <h3>New York (Headquarters)</h3>
+                        <p class="location-type">Main Office</p>
+                    </div>
+                    <div class="location-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Financial District, New York, NY 10001</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> nyc@emergecapital.com</p>
+                    </div>
+                    <div class="location-hours">
+                        <h4>Office Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+                        <p>Saturday: 10:00 AM - 2:00 PM EST</p>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <div class="location-header">
+                        <h3>London</h3>
+                        <p class="location-type">European Office</p>
+                    </div>
+                    <div class="location-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 45 Canary Wharf, London, E14 5AB</p>
+                        <p><i class="fas fa-phone"></i> +44 20 7123 4567</p>
+                        <p><i class="fas fa-envelope"></i> london@emergecapital.com</p>
+                    </div>
+                    <div class="location-hours">
+                        <h4>Office Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM GMT</p>
+                        <p>Saturday: 10:00 AM - 2:00 PM GMT</p>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <div class="location-header">
+                        <h3>Singapore</h3>
+                        <p class="location-type">Asia Pacific Office</p>
+                    </div>
+                    <div class="location-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 78 Marina Bay, Singapore 018956</p>
+                        <p><i class="fas fa-phone"></i> +65 6789 0123</p>
+                        <p><i class="fas fa-envelope"></i> singapore@emergecapital.com</p>
+                    </div>
+                    <div class="location-hours">
+                        <h4>Office Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM SGT</p>
+                        <p>Saturday: 10:00 AM - 2:00 PM SGT</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is the minimum investment amount?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our minimum investment amounts vary by service and strategy. For investment advisory services, we typically require a minimum of $500,000 in investable assets. For fund management, minimums start at $100,000. Contact us for specific details about your investment goals.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do you charge for your services?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer transparent, performance-based fee structures. Our fees typically range from 0.5% to 2% of assets under management, depending on the service and strategy. We also offer performance-based fees for certain alternative investment strategies.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you offer virtual consultations?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer virtual consultations via video conferencing for clients who prefer remote meetings or are located outside our office locations. We can accommodate your schedule and provide the same level of personalized service virtually.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How often do you review client portfolios?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We conduct formal portfolio reviews quarterly, with monthly performance updates and ongoing monitoring. We also provide immediate communication for any significant market events or opportunities that may affect your portfolio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Get Started?</h2>
+                <p>Take the first step toward achieving your financial goals with Emerge Capital Partners.</p>
+                <a href="#contactForm" class="btn btn-primary">Contact Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Emerge Capital Partners</h3>
+                    <p>Building tomorrow's wealth through strategic investment solutions and expert financial guidance.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html#investment-advisory">Investment Advisory</a></li>
+                        <li><a href="services.html#fund-management">Fund Management</a></li>
+                        <li><a href="services.html#private-equity">Private Equity</a></li>
+                        <li><a href="services.html#wealth-management">Wealth Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Financial District, New York, NY 10001</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@emergecapital.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Emerge Capital Partners. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
