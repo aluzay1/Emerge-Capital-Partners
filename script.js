@@ -1,5 +1,6 @@
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded!'); // Debug log
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -9,11 +10,14 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on a link
+        // Close mobile menu when clicking on a link (but not dropdown links)
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+            link.addEventListener('click', (e) => {
+                // Don't close mobile menu for dropdown links
+                if (!link.closest('.dropdown')) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
             });
         });
     }
@@ -160,14 +164,23 @@ document.addEventListener('DOMContentLoaded', function() {
             imageObserver.observe(img);
         });
     }
+
+    // Enhanced dropdown menu functionality for both mobile and desktop
+    const dropdowns = document.querySelectorAll('.dropdown');
+    console.log('Found dropdowns:', dropdowns.length); // Debug log
+    
     dropdowns.forEach(dropdown => {
         const link = dropdown.querySelector('.nav-link');
         const menu = dropdown.querySelector('.dropdown-menu');
         const chevron = link.querySelector('.fas.fa-chevron-down');
         
+        console.log('Setting up dropdown:', link.textContent); // Debug log
+        
         // Mobile dropdown functionality
         if (window.innerWidth <= 768) {
+            console.log('Setting up mobile dropdown for:', link.textContent); // Debug log
             link.addEventListener('click', function(e) {
+                console.log('Mobile dropdown clicked:', link.textContent); // Debug log
                 e.preventDefault();
                 e.stopPropagation();
                 
@@ -183,12 +196,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Toggle current dropdown
                 const isOpen = menu.classList.contains('active');
+                console.log('Dropdown is open:', isOpen); // Debug log
                 if (isOpen) {
                     menu.classList.remove('active');
                     chevron.style.transform = 'rotate(0deg)';
+                    console.log('Closing dropdown'); // Debug log
                 } else {
                     menu.classList.add('active');
                     chevron.style.transform = 'rotate(180deg)';
+                    console.log('Opening dropdown'); // Debug log
                 }
             });
         } else {
@@ -211,14 +227,72 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Close dropdowns when clicking outside
     document.addEventListener('click', function(e) {
+        console.log('Document clicked, target:', e.target.tagName, e.target.className); // Debug log
         if (!e.target.closest('.dropdown')) {
-            dropdowns.forEach(dropdown => {
-                const menu = dropdown.querySelector('.dropdown-menu');
-                const chevron = dropdown.querySelector('.fas.fa-chevron-down');
-                menu.classList.remove('active');
-                chevron.style.transform = 'rotate(0deg)';
-            });
+            console.log('Clicking outside dropdown, closing all dropdowns'); // Debug log
+            // Add a small delay to prevent immediate closing
+            setTimeout(() => {
+                dropdowns.forEach(dropdown => {
+                    const menu = dropdown.querySelector('.dropdown-menu');
+                    const chevron = dropdown.querySelector('.fas.fa-chevron-down');
+                    menu.classList.remove('active');
+                    chevron.style.transform = 'rotate(0deg)';
+                });
+            }, 100);
+        } else {
+            console.log('Clicking inside dropdown, keeping open'); // Debug log
         }
+    });
+
+    // Window resize handler to reinitialize dropdowns
+    window.addEventListener('resize', function() {
+        console.log('Window resized, current width:', window.innerWidth); // Debug log
+        // Reinitialize dropdowns on resize
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('.nav-link');
+            const menu = dropdown.querySelector('.dropdown-menu');
+            const chevron = link.querySelector('.fas.fa-chevron-down');
+            
+            // Remove existing event listeners
+            link.removeEventListener('click', link._dropdownClickHandler);
+            
+            if (window.innerWidth <= 768) {
+                console.log('Reinitializing mobile dropdown for:', link.textContent); // Debug log
+                // Mobile dropdown functionality
+                link._dropdownClickHandler = function(e) {
+                    console.log('Mobile dropdown clicked (resize):', link.textContent); // Debug log
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Close all other dropdowns
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            const otherMenu = otherDropdown.querySelector('.dropdown-menu');
+                            const otherChevron = otherDropdown.querySelector('.fas.fa-chevron-down');
+                            otherMenu.classList.remove('active');
+                            otherChevron.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    const isOpen = menu.classList.contains('active');
+                    if (isOpen) {
+                        menu.classList.remove('active');
+                        chevron.style.transform = 'rotate(0deg)';
+                    } else {
+                        menu.classList.add('active');
+                        chevron.style.transform = 'rotate(180deg)';
+                    }
+                };
+                link.addEventListener('click', link._dropdownClickHandler);
+            } else {
+                // Desktop hover functionality
+                link._dropdownClickHandler = function(e) {
+                    // Don't prevent default on desktop
+                };
+                link.addEventListener('click', link._dropdownClickHandler);
+            }
+        });
     });
 });
 
