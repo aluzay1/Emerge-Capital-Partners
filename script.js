@@ -143,8 +143,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Enhanced dropdown menu functionality for both mobile and desktop
-    const dropdowns = document.querySelectorAll('.dropdown');
+    // Lazy loading for images (if any are added later)
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
     dropdowns.forEach(dropdown => {
         const link = dropdown.querySelector('.nav-link');
         const menu = dropdown.querySelector('.dropdown-menu');
@@ -205,24 +220,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-
-    // Lazy loading for images (if any are added later)
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
-    }
 });
 
 // Utility Functions
